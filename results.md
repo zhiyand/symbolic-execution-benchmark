@@ -76,3 +76,33 @@ KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memo
 
 **`strcpy.c` on `fuzzball`**
 
+### signedint.c
+
+This is a simple demonstration of an signed int vulnerability.
+The check for the length of the argument will pass when the length of
+the arugment provided is so long such that it resulted in an integer
+overflow (looping back to negative value). This will cause strcpy to copy
+an input with length more than the size of the allocated buffer, resulting
+in an memory out-of-point error
+
+##observations
+
+**`unsignedint.c` on `angr`**
+
+**`unsignedint.c` on `klee`**
+```
+KLEE: done: explored paths = 108
+KLEE: done: avg. constructs per query = 28
+KLEE: done: total queries = 299
+KLEE: done: valid queries = 3
+KLEE: done: invalid queries = 296
+KLEE: done: query cex = 299
+
+KLEE: done: total instructions = 156197
+KLEE: done: completed paths = 108
+KLEE: done: generated tests = 2
+KLEE: done: generated failing tests = 1
+KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
+```
+
+**`unsignedint.c` on `fuzzball`**
