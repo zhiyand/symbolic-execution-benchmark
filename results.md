@@ -23,7 +23,9 @@ fault.
 **`array.c` on `angr`**
 
 
-> <Explorer with paths: 2 active, 0 spilled, 23 deadended, 2799 errored, 0 unconstrained, 0 found, 0 avoided, 0 deviating, 0 looping, 0 lost>
+```
+<Explorer with paths: 2 active, 0 spilled, 23 deadended, 2799 errored, 0 unconstrained, 0 found, 0 avoided, 0 deviating, 0 looping, 0 lost>
+```
 
 23 paths exited normally. 2799 paths errored out. `angr` kept running
 (generating more errored paths) until manually interuption.
