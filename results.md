@@ -29,3 +29,46 @@ fault.
 
 23 paths exited normally. 2799 paths errored out. `angr` kept running
 (generating more errored paths) until manually interuption.
+
+**`array.c` on `klee`**
+KLEE: done: explored paths = 11457
+KLEE: done: avg. constructs per query = 100
+KLEE: done: total queries = 6286
+KLEE: done: valid queries = 4628
+KLEE: done: invalid queries = 1658
+KLEE: done: query cex = 6286
+
+KLEE: done: total instructions = 744926
+KLEE: done: completed paths = 11457
+KLEE: done: generated tests = 4
+KLEE: done: generated failing tests = 2
+KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdlib/stdlib.c:526: memory error: out of bound pointer
+KLEE: ERROR: /home/student/Desktop/benchmarks/array_vul/array.c:16: memory error: out of bound pointer
+ `klee` kept running until time-out of 360 seconds
+
+### `strcpy.c`
+
+This is a simple demonstration of memory out-of-bound error. 
+The program will accept one argument as a string.  Memory out-of-bound error
+will be triggered when the number of characters in the string is more than 10.
+
+##observations
+
+**`strcpy.c` on `angr`**
+
+**`strcpy.c` on `klee`**
+KLEE: done: explored paths = 18
+KLEE: done: avg. constructs per query = 39
+KLEE: done: total queries = 209
+KLEE: done: valid queries = 3
+KLEE: done: invalid queries = 206
+KLEE: done: query cex = 209
+
+KLEE: done: total instructions = 27932
+KLEE: done: completed paths = 18
+KLEE: done: generated tests = 2
+KLEE: done: generated failing tests = 1
+KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
+
+**`strcpy.c` on `fuzzball`**
+
