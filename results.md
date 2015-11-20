@@ -59,6 +59,7 @@ will be triggered when the number of characters in the string is more than 10.
 **`strcpy.c` on `angr`**
 
 **`strcpy.c` on `klee`**
+```
 KLEE: done: explored paths = 18
 KLEE: done: avg. constructs per query = 39
 KLEE: done: total queries = 209
@@ -71,6 +72,7 @@ KLEE: done: completed paths = 18
 KLEE: done: generated tests = 2
 KLEE: done: generated failing tests = 1
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
+```
 
 **`strcpy.c` on `fuzzball`**
 
