@@ -31,6 +31,7 @@ fault.
 (generating more errored paths) until manually interuption.
 
 **`array.c` on `klee`**
+```
 KLEE: done: explored paths = 11457
 KLEE: done: avg. constructs per query = 100
 KLEE: done: total queries = 6286
@@ -44,6 +45,7 @@ KLEE: done: generated tests = 4
 KLEE: done: generated failing tests = 2
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdlib/stdlib.c:526: memory error: out of bound pointer
 KLEE: ERROR: /home/student/Desktop/benchmarks/array_vul/array.c:16: memory error: out of bound pointer
+```
  `klee` kept running until time-out of 360 seconds
 
 ### `strcpy.c`
