@@ -133,7 +133,35 @@ KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory 
 
 **`gets.c` on `fuzzball`**
 
+###`doublefree.c`
+This is a simple demonstration of double free vulnerability.
+If the argument (an integer) is more than 10, it will trigger
+a double free vulnerability.
 
+##observations
+
+**`doublefree.c` on angr**
+
+**`doublefree.c` on klee**
+```
+KLEE: done: explored paths = 969
+KLEE: done: avg. constructs per query = 165
+KLEE: done: total queries = 972
+KLEE: done: valid queries = 382
+KLEE: done: invalid queries = 590
+KLEE: done: query cex = 972
+
+KLEE: done: total instructions = 73433
+KLEE: done: completed paths = 969
+KLEE: done: generated tests = 59
+KLEE: done: generated failing tests = 43
+KLEE: ERROR: /home/student/Desktop/benchmarks/doublefree_vul/doublefree.c:17: memory error: invalid pointer: free
+```
+The error repeated itself for 43 times on klee
+
+**`doublefree.c` on fuzzball**
 
 
 **`unsignedint.c` on `fuzzball`**
+
+###
