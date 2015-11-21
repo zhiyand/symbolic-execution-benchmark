@@ -159,7 +159,6 @@ KLEE: done: generated failing tests = 1
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
-<<<<<<< HEAD
 **`unsignedint.c` on `fuzzBALL`**
 Was unable to find the bug due to a long process time. Optimizations such as starting from a specific address were
 used, but with no avail. However, should we be given enough time, we should be able to find the bug.
@@ -169,7 +168,7 @@ This is a simple demonstration of how gets did not check for the
 length of the input. An input with length more than 10 will trigger
 a memory out-of-bounds error
 
-##onservations
+##observations
 
 **`gets.c` on `angr`**
 
@@ -224,4 +223,3 @@ The error repeated itself for 43 times on klee
 **`unsignedint.c` on `fuzzball`**
 
 ###
->>>>>>> origin/master
