@@ -46,7 +46,51 @@ KLEE: done: generated failing tests = 2
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdlib/stdlib.c:526: memory error: out of bound pointer
 KLEE: ERROR: /home/student/Desktop/benchmarks/array_vul/array.c:16: memory error: out of bound pointer
 ```
- `klee` kept running until time-out of 360 seconds
+`klee` kept running until time-out of 360 seconds
+
+**`array.c` on `fuzzBALL`**
+```
+Iteration 1:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 2:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 3:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 4:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 5:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 6:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 7:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 8:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 9:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 10:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 11:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 12:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 13:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 14:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 15:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 16:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 17:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is false
+Iteration 18:
+At 0x08048434, condition  0x14:reg32_t <= mem_70[ R_ESP_1:reg32_t + 0x68:reg32_t ]:reg32_t  is true
+```
+We specify that the counter variable for the for-loop should not exceed a certain value (20), and we look
+into the variable's address location to check on each iteration (Path generated). `fuzzBALL` generated
+random symbolic arguments until it hit a case (On its 18th try) that satisfy this condition, thus automatically
+terminating itself.
 
 ### `strcpy.c`
 
@@ -74,7 +118,17 @@ KLEE: done: generated failing tests = 1
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
-**`strcpy.c` on `fuzzball`**
+**`strcpy.c` on `fuzzBALL`**
+```
+Iteration 121:
+: error while loading shared libraries: cannot open shared object file: No such file or directory
+Iteration 122:
+At 080484d1, mem[R_ESP:reg32_t + 0x22:reg32_t ]:reg32_t is 0xb7f0:reg32_t
+�#��29d typed: n�I1
+
+*** stack smashing detected ***: <unknown> terminated
+```
+Manual termination required. A region of the buffer is symbolized, and FuzzBALL works from there.
 
 ### signedint.c
 
@@ -105,4 +159,6 @@ KLEE: done: generated failing tests = 1
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
-**`unsignedint.c` on `fuzzball`**
+**`unsignedint.c` on `fuzzBALL`**
+Was unable to find the bug due to a long process time. Optimizations such as starting from a specific address were
+used, but with no avail. However, should we be given enough time, we should be able to find the bug.
