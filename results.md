@@ -159,6 +159,69 @@ KLEE: done: generated failing tests = 1
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
+<<<<<<< HEAD
 **`unsignedint.c` on `fuzzBALL`**
 Was unable to find the bug due to a long process time. Optimizations such as starting from a specific address were
 used, but with no avail. However, should we be given enough time, we should be able to find the bug.
+=======
+###`gets.c`
+This is a simple demonstration of how gets did not check for the 
+length of the input. An input with length more than 10 will trigger
+a memory out-of-bounds error
+
+##onservations
+
+**`gets.c` on `angr`**
+
+**`gets.c` on `klee`**
+```
+KLEE: done: explored paths = 22
+KLEE: done: avg. constructs per query = 43
+KLEE: done: total queries = 224
+KLEE: done: valid queries = 1
+KLEE: done: invalid queries = 223
+KLEE: done: query cex = 224
+
+KLEE: done: total instructions = 22093
+KLEE: done: completed paths = 22
+KLEE: done: generated tests = 3
+KLEE: done: generated failing tests = 2
+KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory error: out of bound pointer
+KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory error: out of bound pointer
+```
+
+**`gets.c` on `fuzzball`**
+
+###`doublefree.c`
+This is a simple demonstration of double free vulnerability.
+If the argument (an integer) is more than 10, it will trigger
+a double free vulnerability.
+
+##observations
+
+**`doublefree.c` on angr**
+
+**`doublefree.c` on klee**
+```
+KLEE: done: explored paths = 969
+KLEE: done: avg. constructs per query = 165
+KLEE: done: total queries = 972
+KLEE: done: valid queries = 382
+KLEE: done: invalid queries = 590
+KLEE: done: query cex = 972
+
+KLEE: done: total instructions = 73433
+KLEE: done: completed paths = 969
+KLEE: done: generated tests = 59
+KLEE: done: generated failing tests = 43
+KLEE: ERROR: /home/student/Desktop/benchmarks/doublefree_vul/doublefree.c:17: memory error: invalid pointer: free
+```
+The error repeated itself for 43 times on klee
+
+**`doublefree.c` on fuzzball**
+
+
+**`unsignedint.c` on `fuzzball`**
+
+###
+>>>>>>> origin/master
