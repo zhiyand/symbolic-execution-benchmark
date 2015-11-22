@@ -1,4 +1,7 @@
-all: array
+all: array.o strcpy.o doublefree.o signedint.o backdoor.o
 
-array:
-	gcc array.c -o array.out
+%.o: %.c
+	gcc $< -o $@
+
+clean:
+	rm -rf *.o

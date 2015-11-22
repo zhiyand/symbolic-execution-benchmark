@@ -1,6 +1,6 @@
 import angr
 
-p = angr.Project('../array.out');
+p = angr.Project('../array.o');
 
 ex = p.surveyors.Explorer()
 
