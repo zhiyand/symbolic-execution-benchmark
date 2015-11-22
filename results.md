@@ -67,21 +67,22 @@ There're no crashes expected with this program. The bug is a logic bug.
 
 **`array.c` on `klee`**
 ```
-KLEE: done: explored paths = 11457
-KLEE: done: avg. constructs per query = 100
-KLEE: done: total queries = 6286
-KLEE: done: valid queries = 4628
-KLEE: done: invalid queries = 1658
-KLEE: done: query cex = 6286
+KLEE: done: explored paths = 13809
+KLEE: done: avg. constructs per query = 115
+KLEE: done: total queries = 8294
+KLEE: done: valid queries = 5924
+KLEE: done: invalid queries = 2370
+KLEE: done: query cex = 8294
 
-KLEE: done: total instructions = 744926
-KLEE: done: completed paths = 11457
-KLEE: done: generated tests = 4
-KLEE: done: generated failing tests = 2
+KLEE: done: total instructions = 1211969
+KLEE: done: completed paths = 13809
+KLEE: done: generated tests = 13776
+
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdlib/stdlib.c:526: memory error: out of bound pointer
-KLEE: ERROR: /home/student/Desktop/benchmarks/array_vul/array.c:16: memory error: out of bound pointer
+KLEE: ERROR: /home/student/Desktop/benchmarks/scripts/../array.c:16: memory error: out of bound pointer
+
 ```
-`klee` kept running until time-out of 360 seconds
+`klee` kept running until time-out of 360 seconds.
 
 **`array.c` on `fuzzBALL`**
 ```
@@ -141,18 +142,18 @@ the input string length, which is not very useful in this case.
 
 **`strcpy.c` on `klee`**
 ```
-KLEE: done: explored paths = 18
-KLEE: done: avg. constructs per query = 39
-KLEE: done: total queries = 209
-KLEE: done: valid queries = 3
-KLEE: done: invalid queries = 206
-KLEE: done: query cex = 209
+KLEE: done: explored paths = 12
+KLEE: done: avg. constructs per query = 12
+KLEE: done: total queries = 21
+KLEE: done: valid queries = 1
+KLEE: done: invalid queries = 20
+KLEE: done: query cex = 21
 
-KLEE: done: total instructions = 27932
-KLEE: done: completed paths = 18
-KLEE: done: generated tests = 2
-KLEE: done: generated failing tests = 1
-KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
+KLEE: done: total instructions = 10694
+KLEE: done: completed paths = 12
+KLEE: done: generated tests = 12
+
+KLEE: ERROR: /home/student/cs4239/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
 **`strcpy.c` on `fuzzBALL`**
@@ -177,17 +178,16 @@ not very useful in this case.
 
 **`signedint.c` on `klee`**
 ```
-KLEE: done: explored paths = 108
-KLEE: done: avg. constructs per query = 28
-KLEE: done: total queries = 299
-KLEE: done: valid queries = 3
-KLEE: done: invalid queries = 296
-KLEE: done: query cex = 299
+KLEE: done: explored paths = 102
+KLEE: done: avg. constructs per query = 5
+KLEE: done: total queries = 111
+KLEE: done: valid queries = 1
+KLEE: done: invalid queries = 110
+KLEE: done: query cex = 111
 
-KLEE: done: total instructions = 156197
-KLEE: done: completed paths = 108
-KLEE: done: generated tests = 2
-KLEE: done: generated failing tests = 1
+KLEE: done: total instructions = 139442
+KLEE: done: completed paths = 102
+KLEE: done: generated tests = 102
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
@@ -202,19 +202,18 @@ used, but with no avail. However, should we be given enough time, we should be a
 
 **`gets.c` on `klee`**
 ```
-KLEE: done: explored paths = 22
-KLEE: done: avg. constructs per query = 43
-KLEE: done: total queries = 224
+KLEE: done: explored paths = 33
+KLEE: done: avg. constructs per query = 16
+KLEE: done: total queries = 22
 KLEE: done: valid queries = 1
-KLEE: done: invalid queries = 223
-KLEE: done: query cex = 224
+KLEE: done: invalid queries = 21
+KLEE: done: query cex = 22
 
-KLEE: done: total instructions = 22093
-KLEE: done: completed paths = 22
-KLEE: done: generated tests = 3
-KLEE: done: generated failing tests = 2
+KLEE: done: total instructions = 29408
+KLEE: done: completed paths = 33
+KLEE: done: generated tests = 31
 KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory error: out of bound pointer
-KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory error: out of bound pointer
+
 ```
 
 **`gets.c` on `fuzzball`**
@@ -226,20 +225,19 @@ KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory 
 
 **`doublefree.c` on klee**
 ```
-KLEE: done: explored paths = 969
-KLEE: done: avg. constructs per query = 165
-KLEE: done: total queries = 972
-KLEE: done: valid queries = 382
-KLEE: done: invalid queries = 590
-KLEE: done: query cex = 972
+KLEE: done: explored paths = 29
+KLEE: done: avg. constructs per query = 59
+KLEE: done: total queries = 60
+KLEE: done: valid queries = 25
+KLEE: done: invalid queries = 35
+KLEE: done: query cex = 60
 
-KLEE: done: total instructions = 73433
-KLEE: done: completed paths = 969
-KLEE: done: generated tests = 59
-KLEE: done: generated failing tests = 43
-KLEE: ERROR: /home/student/Desktop/benchmarks/doublefree_vul/doublefree.c:17: memory error: invalid pointer: free
+KLEE: done: total instructions = 16878
+KLEE: done: completed paths = 29
+KLEE: done: generated tests = 26
+
+KLEE: ERROR: /home/student/Desktop/benchmarks/scripts/../doublefree.c:17: memory error: invalid pointer: free
 ```
-The error repeated itself for 43 times on klee
 
 **`doublefree.c` on fuzzball**
 
