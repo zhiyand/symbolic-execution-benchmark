@@ -169,7 +169,7 @@ At 080484d1, mem[R_ESP:reg32_t + 0x22:reg32_t ]:reg32_t is 0xb7f0:reg32_t
 Manual termination required. A region of the buffer is symbolized, and FuzzBALL works from there.
 
 
-##observations
+##observations (`signedint.c`)
 
 **`signedint.c` on `angr`**
 
@@ -196,7 +196,7 @@ Was unable to find the bug due to a long process time. Optimizations such as sta
 used, but with no avail. However, should we be given enough time, we should be able to find the bug.
 
 
-##observations
+##observations (`gets.c`)
 
 **`gets.c` on `angr`**
 
@@ -219,7 +219,7 @@ KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory 
 **`gets.c` on `fuzzball`**
 
 
-##observations
+##observations (`doublefree`)
 
 **`doublefree.c` on angr**
 
