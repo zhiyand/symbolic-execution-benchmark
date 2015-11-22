@@ -1,0 +1,1 @@
+fuzzball ../doublefree.out -solver stpvc -linux-syscalls -skip-call-ret-symbol 0x0804849c=x -finish-on-nonfalse-cond -fuzz-start-addr 0x08048464 -trace-iterations -solve-final-pc -- ../doublefree.out 0
