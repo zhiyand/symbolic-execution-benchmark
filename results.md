@@ -246,7 +246,7 @@ KLEE: ERROR: /home/student/Desktop/benchmarks/scripts/../doublefree.c:17: memory
 
 **`backdoor.c` on angr**
 
-**`backdoor.c` on klee**`
+**`backdoor.c` on `klee`**
 klee was unable to find the logic bug as the logic bug path is a valid path.
 
 **`backdoor.c` on fuzzball**
