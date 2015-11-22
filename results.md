@@ -224,9 +224,9 @@ printf (There are no branching conditions between). Hence, fuzzBALL failed to ge
 
 ##observations (`doublefree.c`)
 
-**`doublefree.c` on angr**
+**`doublefree.c` on `angr`**
 
-**`doublefree.c` on klee**
+**`doublefree.c` on `klee`**
 ```
 KLEE: done: explored paths = 29
 KLEE: done: avg. constructs per query = 59
@@ -253,12 +253,14 @@ Iteration 2:
 Although not caught by fuzzBALL, fuzzBALL was still able to encounter the path which causes the error.
 If wanted, fuzzBALL could put an assert where the symbolic value would enter the >10 condition (As described in the source-code),
 but we are assuming we are fuzzing blindly.
+=======
+**`doublefree.c` on `fuzzball`**
 
 ##observations (`backdoor.c`)
 
-**`backdoor.c` on angr**
+**`backdoor.c` on `angr`**
 
-**`backdoor.c` on klee**`
+**`backdoor.c` on `klee`**
 klee was unable to find the logic bug as the logic bug path is a valid path.
 
 **`backdoor.c` on fuzzBALL**
@@ -270,3 +272,5 @@ Nothing scary happened
 Iteration 3:
 Admin code executed!
 ```
+=======
+**`backdoor.c` on `fuzzball`**
