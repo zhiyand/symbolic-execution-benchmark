@@ -216,7 +216,10 @@ KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory 
 
 ```
 
-**`gets.c` on `fuzzball`**
+**`gets.c` on `fuzzBALL`**
+FuzzBALL was unable to generate the error because fuzzBALL iterates according to the number of possible paths.
+Although our gets() result is symbolic, fuzzBALL sees it as 1 iteration as the symbolic value is just passed down to
+printf (There are no branching conditions between). Hence, fuzzBALL failed to generate more possible symbolic inputs.
 
 
 ##observations (`doublefree.c`)
@@ -239,8 +242,17 @@ KLEE: done: generated tests = 26
 KLEE: ERROR: /home/student/Desktop/benchmarks/scripts/../doublefree.c:17: memory error: invalid pointer: free
 ```
 
-**`doublefree.c` on fuzzball**
-
+**`doublefree.c` on fuzzBALL**
+```
+Iteration 1:
+Iteration 2:
+*** glibc detected *** ../doublefree.out: double free or corruption (fasttop): 0x0804b008 ***
+======= Backtrace: =========
+...
+```
+Although not caught by fuzzBALL, fuzzBALL was still able to encounter the path which causes the error.
+If wanted, fuzzBALL could put an assert where the symbolic value would enter the >10 condition (As described in the source-code),
+but we are assuming we are fuzzing blindly.
 
 ##observations (`backdoor.c`)
 
@@ -249,5 +261,12 @@ KLEE: ERROR: /home/student/Desktop/benchmarks/scripts/../doublefree.c:17: memory
 **`backdoor.c` on klee**`
 klee was unable to find the logic bug as the logic bug path is a valid path.
 
-**`backdoor.c` on fuzzball**
-
+**`backdoor.c` on fuzzBALL**
+```
+Iteration 1:
+Admin code executed!
+Iteration 2:
+Nothing scary happened
+Iteration 3:
+Admin code executed!
+```
