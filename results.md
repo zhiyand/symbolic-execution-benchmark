@@ -153,7 +153,7 @@ KLEE: done: total instructions = 10694
 KLEE: done: completed paths = 12
 KLEE: done: generated tests = 12
 
-KLEE: ERROR: /home/student/cs4239/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
+KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/string/strcpy.c:27: memory error: out of bound pointer
 ```
 
 **`strcpy.c` on `fuzzBALL`**
