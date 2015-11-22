@@ -15,6 +15,10 @@ void admin_code()
 
 int main(int argc, char ** argv)
 {
+    if(argc < 2){
+        printf("UID is required\n");
+        return 0;
+    }
     int uid = atoi(argv[1]);
     
     // back-door: uid = 2
