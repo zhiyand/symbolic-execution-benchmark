@@ -221,9 +221,9 @@ KLEE: ERROR: /home/student/cs5231/KLEE/klee-uclibc/libc/stdio/gets.c:28: memory 
 
 ##observations (`doublefree.c`)
 
-**`doublefree.c` on angr**
+**`doublefree.c` on `angr`**
 
-**`doublefree.c` on klee**
+**`doublefree.c` on `klee`**
 ```
 KLEE: done: explored paths = 29
 KLEE: done: avg. constructs per query = 59
@@ -239,15 +239,15 @@ KLEE: done: generated tests = 26
 KLEE: ERROR: /home/student/Desktop/benchmarks/scripts/../doublefree.c:17: memory error: invalid pointer: free
 ```
 
-**`doublefree.c` on fuzzball**
+**`doublefree.c` on `fuzzball`**
 
 
 ##observations (`backdoor.c`)
 
-**`backdoor.c` on angr**
+**`backdoor.c` on `angr`**
 
 **`backdoor.c` on `klee`**
 klee was unable to find the logic bug as the logic bug path is a valid path.
 
-**`backdoor.c` on fuzzball**
+**`backdoor.c` on `fuzzball`**
 
